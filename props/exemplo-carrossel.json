@@ -1,0 +1,12 @@
+{
+  "slides": [
+    { "tipo": "capa", "titulo": "Automatize", "destaque": "com n8n", "subtitulo": "Em 6 passos, sem programar" },
+    { "tipo": "comparacao", "titulo": "Antes e depois", "esquerda": { "rotulo": "ANTES", "texto": "Copiar dados de um app para outro, na mão." }, "direita": { "rotulo": "DEPOIS", "texto": "Um fluxo que faz isso sozinho." } },
+    { "tipo": "passo", "numero": 1, "titulo": "Escolha um gatilho", "texto": "Tudo começa com um evento: chegou um formulário, um e-mail ou uma hora marcada." },
+    { "tipo": "passo", "numero": 2, "titulo": "Ligue os blocos", "texto": "Cada bloco faz um passo. Você conecta um no outro, como peças." },
+    { "tipo": "codigo", "titulo": "Quando precisar de código", "codigo": "const total = itens\n  .map(i => i.preco)\n  .reduce((a, b) => a + b, 0);", "legenda": "Um bloco de código resolve o que os outros não cobrem." },
+    { "tipo": "destaque", "valor": "5 min", "texto": "é o tempo para o primeiro fluxo funcionando." },
+    { "tipo": "lista", "titulo": "Boas primeiras automações", "itens": ["Salvar respostas numa planilha", "Avisar no chat quando algo chegar", "Gerar um resumo toda manhã"] },
+    { "tipo": "licao", "titulo": "Comece pela tarefa que mais se repete", "texto": "A melhor automação é a que tira de você o que você faz todo dia.", "chamada": "Envie para quem copia dados na mão" }
+  ]
+}
