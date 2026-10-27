@@ -1,0 +1,47 @@
+{
+  "legenda": false,
+  "cenas": [
+    {
+      "tipo": "titulo", "inicioSeg": 0, "fimSeg": 3.5,
+      "texto": "Pare de digitar\n*senha* no SSH",
+      "subtitulo": "ssh-keygen em 1 minuto",
+      "fala": "Pare de digitar *senha* no SSH."
+    },
+    {
+      "tipo": "cartoes", "inicioSeg": 3.5, "fimSeg": 9,
+      "etiqueta": "COMO *FUNCIONA*",
+      "itens": [
+        { "titulo": "Chave *privada*", "texto": "Fica só no seu computador" },
+        { "titulo": "Chave *pública*", "texto": "Vai para o servidor" },
+        { "titulo": "Os dois *se reconhecem*", "texto": "Sem senha na tela" }
+      ],
+      "fala": "Você cria um par de chaves. A privada fica com você, a pública vai pro servidor."
+    },
+    {
+      "tipo": "codigo", "inicioSeg": 9, "fimSeg": 15,
+      "etiqueta": "UM *COMANDO*",
+      "arquivo": "terminal",
+      "codigo": "# 1. gerar o par de chaves\nssh-keygen -t ed25519\n# 2. enviar a pública\nssh-copy-id usuario@servidor",
+      "destacar": [4],
+      "fala": "Gere a chave e copie a pública com *ssh-copy-id*."
+    },
+    {
+      "tipo": "contador", "inicioSeg": 15, "fimSeg": 19.5,
+      "etiqueta": "O *RESULTADO*",
+      "ate": 47, "prefixo": "×",
+      "rotulo": "senhas a menos *por semana*",
+      "fala": "São quarenta e sete senhas a menos por semana."
+    },
+    {
+      "tipo": "lista", "inicioSeg": 19.5, "fimSeg": 25.5,
+      "etiqueta": "3 *CUIDADOS*", "misterio": true,
+      "itens": ["Use *ed25519*", "Proteja a chave com *passphrase*", "Nunca compartilhe a *privada*"],
+      "fala": "Três cuidados: use ed25519, proteja com passphrase e nunca compartilhe a privada."
+    },
+    {
+      "tipo": "fechamento", "inicioSeg": 25.5, "fimSeg": 29,
+      "texto": "Salve para *não esquecer*",
+      "fala": "Salve pra não esquecer."
+    }
+  ]
+}

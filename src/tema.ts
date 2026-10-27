@@ -25,3 +25,7 @@ export const tema = {
 };
 export const LARGURA = 1080;
 export const ALTURA = 1350;
+
+// Reels / Capa (1080x1920). Zona segura do Instagram: topo ~250px, base ~420px.
+export const ALTURA_REELS = 1920;
+export const SEGURA = { topo: 250, base: 420 };

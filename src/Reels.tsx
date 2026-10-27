@@ -1,25 +1,29 @@
-import { AbsoluteFill, Audio, Img, Sequence, staticFile, useVideoConfig } from 'remotion';
+import { useMemo } from 'react';
+import { AbsoluteFill, Audio, Sequence, staticFile, useVideoConfig } from 'remotion';
+import { CorpoCena } from './cenas';
+import { AreaSegura, FundoVivo, ImagemCena, Legenda, montarPalavras } from './kit';
 import { FONTE_TITULO, tema } from './tema';
 import type { PropsReels } from './tipos';
 
-// 1080x1920, 30 fps. Legenda sincronizada pelos tempos das cenas (TTS ou transcrição).
-export const Reels = ({ cenas, audio, legenda = true }: PropsReels) => {
+// 1080x1920, 30 fps. Cenas dirigidas por JSON (inicioSeg/fimSeg). Áudio e legenda são opcionais.
+export const Reels = ({ cenas, audio, legenda = false, palavras }: PropsReels) => {
   const { fps } = useVideoConfig();
+  const lista = useMemo(() => (legenda ? montarPalavras(cenas, palavras) : []), [legenda, cenas, palavras]);
   return (
     <AbsoluteFill style={{ background: tema.fundo, fontFamily: FONTE_TITULO }}>
+      <FundoVivo />
       {audio && <Audio src={staticFile(audio)} />}
       {cenas.map((c, i) => (
         <Sequence key={i} from={Math.round(c.inicioSeg * fps)} durationInFrames={Math.max(1, Math.round((c.fimSeg - c.inicioSeg) * fps))}>
           <AbsoluteFill>
-            {c.imagem && <Img src={staticFile(c.imagem)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-            {legenda && (
-              <div style={{ position: 'absolute', bottom: 260, left: tema.margem, right: tema.margem, color: tema.texto, fontSize: 64, fontWeight: 700, textAlign: 'center', textShadow: '0 4px 16px #000' }}>
-                {c.texto}
-              </div>
-            )}
+            {c.imagem && <ImagemCena src={c.imagem} />}
+            <AreaSegura legenda={legenda} etiqueta={c.etiqueta}>
+              <CorpoCena c={c} />
+            </AreaSegura>
           </AbsoluteFill>
         </Sequence>
       ))}
+      {legenda && <Legenda palavras={lista} />}
     </AbsoluteFill>
   );
 };
