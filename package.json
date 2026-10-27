@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "estudio": "remotion studio src/index.ts",
-    "render:carrossel": "remotion render src/index.ts Carrossel --sequence --image-format=png --output=saida/carrossel/slide.png --props=%PROPS%",
+    "render:carrossel": "remotion render src/index.ts Carrossel --sequence --image-format=png --output=saida/carrossel --props=%PROPS%",
     "render:reels": "remotion render src/index.ts Reels --codec=h264 --output=saida/reels.mp4 --props=%PROPS%"
   },
   "dependencies": {
